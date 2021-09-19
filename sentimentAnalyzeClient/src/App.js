@@ -48,9 +48,10 @@ class App extends React.Component {
         this.setState({sentimentOutput:data.label});
         let output = data.label;
         let color = "white"
-        switch(output) {
-          case "positive": color = "black";break;
-          case "negative": color = "black";break;
+        switch (output) {
+          case "positive": color = "green"; break;
+          case "neutral": color = "yellow"; break;
+          case "negative": color = "red"; break;
           default: color = "black";
         }
         output = <div style={{color:color,fontSize:20}}>{output}</div>
@@ -70,7 +71,10 @@ class App extends React.Component {
       this.setState({sentimentOutput:<EmotionTable emotions={data}/>});
   })})  ;
   }
-  
+
+  componentDidMount() {
+    document.title = 'Analyze Sentiment';
+  }
 
   render() {
     return (  
