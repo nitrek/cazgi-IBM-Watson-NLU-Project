@@ -146,6 +146,7 @@ app.get("/text/sentiment", (req, res) => {
 
     const naturalLanguageUnderstanding = getNLUInstance();
 
+
     naturalLanguageUnderstanding.analyze(analyzeParams)
         .then(analysisResults => {
             //Print the JSON returned by NLU instance as a formatted string
@@ -159,6 +160,7 @@ app.get("/text/sentiment", (req, res) => {
             return res.send(errMsg);
         });
 });
+
 
 let server = app.listen(8080, () => {
     console.log('Listening', server.address().port)
